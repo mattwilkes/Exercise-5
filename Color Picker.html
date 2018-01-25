@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Color Picker</title>
+	<style>
+		body {
+			font-family:"Trebuchet MS", Segoe, sans-serif;
+			margin:40px;
+			font-size: 1.2em;
+		}
+		div:first-child {
+			margin-bottom: 20px;
+		}
+		button {
+			padding: 10px;
+		}
+		#box {
+			width: 300px;
+			height: 38px;
+			margin-left: 30px;
+		}
+		input{
+			display:inline-block;
+			margin-right:30px;
+		}
+		p{
+			border:none;
+			margin:0px auto;
+			display:inline-block;
+		}
+
+	</style>
+</head>
+<body>
+	<div>
+		RGB Color Picker
+		<br>
+		<br>
+		Select a number frim 0 to 255 for each color value:
+	</div>
+	
+	<div><p>Red:</p><input name="redbox" id="red" type="text" onkeypress="return notletter(event)"/></div>
+	<div><p>Green:</p><input name="greenbox" id="green" type="text" onkeypress="return notletter(event)"/></div>
+	<div><p>Blue:</p><input name="bluebox" id="blue" type="text" onkeypress="return notletter(event)"/></div><br>
+	<div id="box"></div>
+	     <div><input type="button" id="button" value="See Color">
+		 <input type="button" id="clear" value="Clear"></div>
+
+	
+	<script>
+	window.addEventListener("load",start);
+
+function start(){	
+	var button=document.getElementById("button");
+	button.addEventListener("click",colored);
+	var clear=document.getElementById("clear")
+	clear.addEventListener("click",cleared);
+	box.style.backgroundColor = "rgb(" + 0 + ", " + 0 + ", " + 0 + ")";
+}
+
+
+function colored(){
+	colorRed = document.getElementById("red").value;
+	colorGreen = document.getElementById("green").value;
+	colorBlue = document.getElementById("blue").value;
+	if ((colorRed > 255) || (colorBlue > 255) || (colorGreen > 255))
+	{
+	alert("Numbers have to be in between 0 and 255.")
+	}
+	else 
+	{
+	box.style.backgroundColor = "rgb(" + (colorRed) + ", " + (colorGreen) + ", " + (colorBlue) + ")"; 
+	}
+}
+function cleared(){
+	colorRed = 0;
+	colorBlue = 0;
+	colorGreen = 0;
+	box.style.backgroundColor = "rgb(" + (colorRed) + ", " + (colorGreen) + ", " + (colorBlue) + ")";
+}
+function notletter(e) {
+    e = (e)?e:window.event;
+    var charCode = (e.which)?e.which:e.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+		
+		
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
